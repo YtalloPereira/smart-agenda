@@ -1,0 +1,29 @@
+{
+  "name": "sprints-6-7-pb-aws-maio",
+  "version": "1.0.0",
+  "description": "API para conversão de texto em áudio utilizando AWS Polly e integração com serviços S3 e DynamoDB.",
+  "main": "handler.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Compass-pb-aws-2024-MAIO-A/sprints-6-7-pb-aws-maio.git"
+  },
+  "keywords": [
+    "AWS",
+    "Polly",
+    "S3",
+    "DynamoDB",
+    "API",
+    "text-to-speech",
+    "serverless",
+    "Python"
+  ],
+  "author": "Equipe Compass UOL AWS 2024 - Integrantes: Geraldo Mendes Batista Neto, José Luan Fernandes da Silva, Rayane da Silva Rodrigues, Ytollo Pereira Alves",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Compass-pb-aws-2024-MAIO-A/sprints-6-7-pb-aws-maio/issues"
+  },
+  "homepage": "https://github.com/Compass-pb-aws-2024-MAIO-A/sprints-6-7-pb-aws-maio#readme"
+}
