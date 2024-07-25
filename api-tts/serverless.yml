@@ -1,5 +1,6 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: compasspbaws
+# change it to your corresponding org
+org: your-org
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: api-tts
 service: api-tts
@@ -21,4 +22,10 @@ functions:
       - httpApi:
           path: /v1
           method: get
+  generateAudioFromText:
+    handler: handler.generate_audio_from_text
+    events:
+      - httpApi:
+          path: /v1/tts
+          method: post
 
