@@ -1,11 +1,18 @@
+import os
 import json
 import hashlib
 import boto3
 from datetime import datetime
+from dotenv import load_dotenv
 
-bucket_name = "audios-polly-ytallo"
-dynamo_table_name = "audios"
 
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
+
+bucket_name = os.getenv('S3_BUCKET_NAME')
+dynamo_table_name = os.getenv('DYNAMO_DB_NAME')
+
+# Inicializar clientes AWS
 polly_client = boto3.client('polly')
 s3_client = boto3.client('s3')
 dynamodb_client = boto3.client('dynamodb')
@@ -21,6 +28,7 @@ def health(event, context):
 
     return response
 
+
 def v1_description(event, context):
     body = {
         "message": "TTS api version 1."
@@ -29,6 +37,7 @@ def v1_description(event, context):
     response = {"statusCode": 200, "body": json.dumps(body)}
 
     return response
+
 
 def generate_audio_from_text(event, context):
     request_body = json.loads(event['body'])
@@ -59,7 +68,7 @@ def generate_audio_from_text(event, context):
     except Exception as e:
         print(f"Erro ao consultar DynamoDB: {e}")
         return {"statusCode": 500, "body": json.dumps({"error": "Erro ao consultar DynamoDB"})}
-    
+
     try:
         response = polly_client.synthesize_speech(
             Text=phrase,
@@ -67,7 +76,7 @@ def generate_audio_from_text(event, context):
             VoiceId='Ricardo',
             Engine='standard'
         )
-        
+
         audio_key = f"{unique_id}.mp3"
         s3_client.put_object(
             Bucket=bucket_name,
@@ -75,7 +84,7 @@ def generate_audio_from_text(event, context):
             Body=response['AudioStream'].read(),
             ContentType='audio/mpeg'
         )
-        
+
         dynamodb_client.put_item(
             TableName=dynamo_table_name,
             Item={
