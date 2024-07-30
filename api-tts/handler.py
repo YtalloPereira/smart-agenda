@@ -3,14 +3,6 @@ import json
 import hashlib
 import boto3
 from datetime import datetime
-from dotenv import load_dotenv
-
-
-# Carregar variáveis de ambiente do arquivo .env
-load_dotenv()
-
-bucket_name = os.getenv('S3_BUCKET_NAME')
-dynamo_table_name = os.getenv('DYNAMO_DB_NAME')
 
 # Inicializar clientes AWS
 polly_client = boto3.client('polly')
@@ -40,6 +32,10 @@ def v1_description(event, context):
 
 
 def generate_audio_from_text(event, context):
+    
+    bucket_name = os.getenv('S3_BUCKET_NAME')
+    dynamo_table_name = os.getenv('DYNAMO_DB_NAME')
+
     request_body = json.loads(event['body'])
     phrase = request_body.get('phrase', '')
 

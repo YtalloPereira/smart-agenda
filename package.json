@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/Compass-pb-aws-2024-MAIO-A/sprints-6-7-pb-aws-maio/issues"
   },
-  "homepage": "https://github.com/Compass-pb-aws-2024-MAIO-A/sprints-6-7-pb-aws-maio#readme"
+  "homepage": "https://github.com/Compass-pb-aws-2024-MAIO-A/sprints-6-7-pb-aws-maio#readme",
+  "dependencies": {
+    "boto3": "^0.0.1",
+    "dotenv": "^16.4.5"
+  }
 }

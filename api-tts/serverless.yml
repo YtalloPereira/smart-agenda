@@ -1,6 +1,6 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
 # change it to your corresponding org
-org: your-org
+org: compasspbaws
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: api-tts
 service: api-tts
@@ -10,18 +10,21 @@ provider:
   runtime: python3.9
 
 functions:
+
   health:
     handler: handler.health
     events:
       - httpApi:
           path: /
           method: get
+
   v1Description:
     handler: handler.v1_description
     events:
       - httpApi:
           path: /v1
           method: get
+          
   generateAudioFromText:
     handler: handler.generate_audio_from_text
     events:
