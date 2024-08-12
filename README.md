@@ -80,6 +80,7 @@ O fluxo de conversas do chatbot foi cuidadosamente estruturado para garantir uma
 
 ## 🧱 Estrutura dos arquivos e pastas
 
+
 ```
 sprints-6-7-pb-aws-maio/
 │
@@ -90,21 +91,17 @@ sprints-6-7-pb-aws-maio/
 ├── assets/
 │   └── sprints6-7.jpg               # Imagem do projeto
 │
-├── lex-bot-v1/
-│   ├── lambda-backend-lex/
-│   │   └── salvar-agendamentos.zip  # Arquivo zip com funções Lambda, incluindo a função `lambda_function`
-│   └── AgendaInteligente.zip        # Arquivo zip com o modelo do bot Lex, incluindo as intents e slots configurados
-│
-├── SmartAgenda-Lex/
-│   ├── [Arquivos relacionados ao desenvolvimento do bot Lex]
-│
 ├── lambda-agendamentos/
-│   ├── [Arquivos relacionados às funções Lambda para agendamentos] 
+│   └── [Arquivos relacionados às funções Lambda para agendamentos] 
+│
+├── lex-bot-v1/
+│   └── SmartAgenda.zip              # Arquivo zip com o modelo do bot Lex, incluindo as intents e slots configurados
 │
 ├── .gitignore                      # Arquivos e pastas a serem ignorados pelo Git
 ├── package.json                    # Dependências do projeto
 └── README.md                       # Este arquivo
 ```
+
 
 ## 🚀 Instalação e execução
 

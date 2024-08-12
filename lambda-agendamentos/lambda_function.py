@@ -19,7 +19,24 @@ def lambda_handler(event, context):
         elif intent_name == 'CancelarCompromissoIntent':
             response = handle_cancelar_compromisso_intent(event)
         else:
-            return handle_fallback_intent(event)
+            # Caso a intenção não seja reconhecida, configura a fallback intent
+            response = {
+                "sessionState": {
+                    "dialogAction": {
+                        "type": "Close"
+                    },
+                    "intent": {
+                        "name": "FallbackIntent",  # Nome da sua fallback intent
+                        "state": "Failed"
+                    }
+                },
+                "messages": [
+                    {
+                        "contentType": "PlainText",
+                        "content": "Desculpe, não entendi a sua solicitação. Pode me dizer novamente?"
+                    }
+                ]
+            }
         
     except Exception as e:
         # Trata erros inesperados
