@@ -150,8 +150,7 @@ Antes de começar, certifique-se de que você tem as seguintes ferramentas insta
 
 1. Clone o repositório:
    ```sh
-   git clone <https://github.com/Compass-pb-aws-2024-MAIO-A/sprints-6-7-pb-aws-maio/tree/grupo-6>
-   cd sprints-6-7-pb-aws-maio
+   git clone <https://github.com/YtalloPereira/inference-api>
    ```
 
 2. Instale as dependências:
